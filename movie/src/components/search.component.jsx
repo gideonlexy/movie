@@ -1,9 +1,9 @@
 import React from 'react';
 import './search.styles.css';
 
-const Search = ({ handleChange }) => (
+const Search = () => (
 	<div className="search">
-		<input type="text" placeholder="search" onChange={handleChange} />
+		<input type="text" placeholder="search" />
 	</div>
 );
 

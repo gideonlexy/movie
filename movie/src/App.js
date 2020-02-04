@@ -1,52 +1,58 @@
 import React from 'react';
-// import logo from './assets/logo.jpg';
+import logo from './assets/banner.jpeg';
 import './App.css';
 import axios from 'axios';
 
 import Movie from './components/movie.component';
 import Search from './components/search.component';
 
+import { connect } from 'react-redux';
+import fetchAlbumsAction from './redux/actions/fetchAlbums';
+import {
+	getAlbums,
+	getAlbumsError,
+	getAlbumsPending
+} from './redux/reducers/rootReducer';
+
 class App extends React.Component {
-	state = {
-		albums: [],
-		search: ''
-	};
 	componentDidMount() {
-		this.getAlbums();
+		const { fetchAlbums } = this.props;
+		fetchAlbums();
 	}
 
-	firstWord(title) {
-		return title
+	firstWord = title =>
+		title
 			.split(' ')
 			.slice(0, 1)
 			.join(' ');
-	}
-	handleChange = e => {
-		this.setState({ search: e.target.value });
-	};
-	getAlbums = async () => {
-		const response = await axios.get(
-			'https://jsonplaceholder.typicode.com/photos?_limit=10'
-		);
-		const data = response.data;
 
-		this.setState({ albums: data });
-	};
 	render() {
-		const { albums, search } = this.state;
-		const filteredUsers = albums.filter(album =>
-			album.title.toLowerCase().includes(search.toLocaleLowerCase())
-		);
+		const { albums } = this.props;
+		// console.log('ALBUMS', albums);
+
 		return (
 			<div>
-				<div className="header">{/* <img src={logo} alt="logo" /> */}</div>
+				<div className="header">MOVIES</div>
 				<div className="wrapper">
-					<Search handleChange={this.handleChange} />
-					<Movie albums={filteredUsers} firstWord={this.firstWord} />
+					<Search />
+					<Movie albums={albums} firstWord={this.firstWord} />
 				</div>
 			</div>
 		);
 	}
 }
+const mapStateToProps = state => {
+	return {
+		error: getAlbumsError(state),
+		albums: getAlbums(state),
+		pending: getAlbumsPending(state)
+	};
+};
 
-export default App;
+const mapDispatchToProps = dispatch => {
+	return {
+		fetchAlbums: () => dispatch(fetchAlbumsAction())
+	};
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
