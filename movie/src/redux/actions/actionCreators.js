@@ -9,13 +9,13 @@ export const fetchAlbumsPending = () => {
 export const fetchAlbumsSuceeded = albums => {
 	return {
 		type: actionTypes.FETCH_ALBUMS_SUCEEDED,
-		albums: albums
+		payload: albums
 	};
 };
 
 export const fetchAlbumsFailed = error => {
 	return {
 		type: actionTypes.FETCH_ALBUMS_FAILED,
-		error: error
+		payload: error
 	};
 };

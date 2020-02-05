@@ -1,7 +1,6 @@
 import React from 'react';
-import logo from './assets/banner.jpeg';
+
 import './App.css';
-import axios from 'axios';
 
 import Movie from './components/movie.component';
 import Search from './components/search.component';
@@ -13,6 +12,10 @@ import {
 	getAlbumsError,
 	getAlbumsPending
 } from './redux/reducers/rootReducer';
+
+import Loader from './components/loader.component';
+import ClipLoader from 'react-spinners/ClipLoader';
+import './components/loader.styles.css';
 
 class App extends React.Component {
 	componentDidMount() {
@@ -27,14 +30,18 @@ class App extends React.Component {
 			.join(' ');
 
 	render() {
-		const { albums } = this.props;
-		// console.log('ALBUMS', albums);
+		const { albums, pending } = this.props;
 
 		return (
 			<div>
 				<div className="header">MOVIES</div>
 				<div className="wrapper">
 					<Search />
+					{pending ? (
+						<div className="loader">
+							<ClipLoader size={150} color={'#123abc'} />{' '}
+						</div>
+					) : null}
 					<Movie albums={albums} firstWord={this.firstWord} />
 				</div>
 			</div>

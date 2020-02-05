@@ -1,4 +1,3 @@
-import { createStore } from 'redux';
 import * as actionTypes from '../actions/action';
 
 export const initialState = {
@@ -23,7 +22,7 @@ export const rootReducer = (state = initialState, action) => {
 		case actionTypes.FETCH_ALBUMS_FAILED:
 			return {
 				...state,
-				error: action.error
+				error: action.payload
 			};
 		default:
 			return state;
