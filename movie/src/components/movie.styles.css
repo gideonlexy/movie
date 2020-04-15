@@ -1,24 +1,24 @@
 .movie-collection {
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	grid-gap: 20px;
-	padding: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
+  padding: 10px;
 }
 .movie-item {
-	padding: 20px;
-	text-align: center;
-	border: 1px solid #eee;
-	cursor: pointer;
+  padding: 20px;
+  text-align: center;
+  border: 1px solid #eee;
+  cursor: pointer;
 }
 .movie-item img {
-	border-radius: 50%;
+  border-radius: 50%;
 }
 .title {
-	display: block;
-	text-align: center;
-	justify-content: center;
-	text-transform: uppercase;
-	font-weight: small;
-	padding: 10px;
-	font-size: 12px;
+  display: block;
+  text-align: center;
+  justify-content: center;
+  text-transform: uppercase;
+  font-weight: small;
+  padding: 10px;
+  font-size: 12px;
 }

@@ -1,4 +1,8 @@
 .loader {
-	/* color: blue; */
-	text-align: center;
+  /* color: blue; */
+  text-align: center;
+}
+.error {
+  color: red;
+  text-align: center;
 }

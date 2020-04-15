@@ -1,17 +1,11 @@
 .wrapper {
-	width: 960px;
-	margin: 0 auto;
-	background-color: #fff;
+  width: 960px;
+  margin: 0 auto;
+  background-color: #fff;
 }
 .header {
-	/* background-color: #fff; */
-	height: 50px;
-	margin-bottom: 20px;
-	text-align: center;
-	padding: 10px;
-	/* background: url('./assets/banner.jpeg');
-	background-position: cover; */
+  height: 50px;
+  margin-bottom: 20px;
+  text-align: center;
+  padding: 10px;
 }
-/* .header img {
-	height:
-} */
