@@ -1,0 +1,11 @@
+.wrapper {
+  width: 960px;
+  margin: 0 auto;
+  background-color: #fff;
+}
+.header {
+  height: 50px;
+  margin-bottom: 20px;
+  text-align: center;
+  padding: 10px;
+}
